@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "Testshared";
+}
+
+<h2>Testshared</h2>
+<p>
+
+    Hello,
+
+    Steve, Dana and I have been talking over the past few days and although we have come a LONG way on the quality and performance of the mobile apps, we feel that there are still fundamental issues that could end up preventing us from being successful.  My feeling is that as we continue to get more and more drivers on the current app, we will end up seeing a correlation to unhappy customers, and potentially drivers choosing not to run the app due to stability issues, geofencing issues and drivers killing the app while transporting.   I do not want that to happen.
+
+    I know that Dana and Andrew are building out a new database and web service layer that will stabilize and potentially correct some current issues that we are seeing, but below are 2 items that I think will tremendously bolster the results we are seeing from the mobile app.
+    1.	Have the app running in the background and do not allow the user to kill the app.  On the Android, this means creating a service that runs independently from the UI.  On the iOS, this is a bit trickier, but Dana and Andrew may have a solution to keep-alive the iOS app indefinitely.
+    2.	Add smarter detection of pickup and delivery locations and don't depend on the exact route being traveled.  This means triggering key events at any time for:  Onsite Loading (driver is within pickup radius), In Transit (driver is 3 miles outside pickup or delivery radius), Onsite Unloading (Driver is within delivery stop radius).
+    I feel there are other issues with the mobile apps that we need to look into, but these are two key issues that I feel will dramatically improve the results that we are seeing.
+
+    I would like to get a rough estimate on our ability to make these changes within the current mobile apps for both platforms if possible.  I will be working on a more detailed spec that digs in deeper to the details, but I'd like to understand what we would be looking at if we wanted to move forward with these changes.
+
+    I appreciate everyone's support and work as we continue to work towards creating a best in breed solution for freight tracking!
+
+    --
+
+    Thanks,
+
+    Mark Eichinger
+    VP of Product Management & Operations
+    www.freighttracer.com
+    https://twitter.com/freighttracer
+    (o)  866.883.7344 x700
+    (m) 214.608.2161
+
+</p>

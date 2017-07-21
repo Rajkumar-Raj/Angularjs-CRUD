@@ -1,0 +1,133 @@
+﻿@{
+    ViewBag.Title = "Angular JS";
+}
+
+<div ng-controller="Employee">
+
+    <div style="height: 80px;background-color: antiquewhite;">
+        <p style="color: cadetblue;font-size: 36px;padding: 13px 0 0 25%;"><strong>ANGULAR JS Basic CRUD Operation</strong></p>
+    </div>
+
+    <div style="width: 50%; height: 60px; background-color: gainsboro;">
+        <p style="color: cadetblue; font-size: 28px; padding: 12px 0;"><strong>{{Action}} Employee</strong></p>
+    </div>
+
+    <form name="myForm" novalidate>
+        <div style="width: 50%;">
+
+            <p class="divHead"></p>
+            <table class="table">
+                <tr>
+                    <td><b>Firstname</b></td>
+                    <td>
+                        <input type="hidden" ng-model="EmployeeId" />
+                        <input type="text" name="Firstname" ng-model="EmployeeFirstname" required />
+                    </td>
+                    <td>
+                        <span ng-show="myForm.Firstname.$touched && myForm.Firstname.$invalid">The Firstname is required.</span>
+                        @*<span style="color:red" ng-show="myForm.Firstname.$dirty && myForm.Firstname.$invalid">
+                            <span ng-show="myForm.Firstname.$error.required">Firstname is required.</span>
+                        </span>*@
+                    </td>
+                </tr>
+                <tr>
+                    <td><b>Lastname</b></td>
+                    <td>
+                        <input type="text" name="Lastname" ng-model="EmployeeLastname" required />
+                    </td>
+                    <td>
+                        <span style="color:red" ng-show="myForm.Lastname.$dirty && myForm.Lastname.$invalid">
+                            <span ng-show="myForm.Lastname.$error.required">Lastname is required.</span>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><b>Email</b></td>
+                    <td>
+                        <input type="text" name="Email" ng-model="EmployeeEmailID" required />
+                    </td>
+                    <td>
+                        <span style="color:red" ng-show="myForm.Email.$dirty && myForm.Email.$invalid">
+                            <span ng-show="myForm.Email.$error.required">Email is required.</span>
+                            <span ng-show="myForm.Email.$error.email">Invalid email address.</span>
+                        </span>
+                    </td>
+                </tr>               
+                <tr>
+                    <td><b>Address</b></td>
+                    <td>
+                        <input type="text" name="Address" ng-model="EmployeeAddress" required />
+                    </td>
+                    <td>
+                        <span style="color:red" ng-show="myForm.Address.$dirty && myForm.Address.$invalid">
+                            <span ng-show="myForm.Address.$error.required">Address is required.</span>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><b>Phone</b></td>
+                    <td>
+                        <input type="text" name="Phone" ng-model="EmployeePhone" required />
+                    </td>
+                    <td>
+                        <span style="color:red" ng-show="myForm.Phone.$dirty && myForm.Phone.$invalid">
+                            <span ng-show="myForm.Phone.$error.required">Phone is required.</span>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="button" class="btn btn-default" name="Save" value="Save" ng-click="AddUpdateEmployee()"
+                               ng-disabled="myForm.Firstname.$touched && myForm.Firstname.$invalid ||
+                                myForm.Lastname.$dirty && myForm.Lastname.$invalid ||
+                               myForm.Email.$dirty && myForm.Email.$invalid ||
+                               myForm.Address.$dirty && myForm.Address.$invalid ||
+                               myForm.Phone.$dirty && myForm.Phone.$invalid" />
+                        <input type="button" class="btn btn-danger" value="Cancel" ng-click="Cancel()" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </form>
+
+    <div class="divList">
+        <p><b>Employee List</b></p>
+        <table class="table table-hover" style="border: 1px solid #000;border-collapse: separate;">
+            <tr>
+                <td><b>ID</b></td>
+                <td><b>Firstname</b></td>
+                <td><b>Lastname</b></td>
+                <td><b>EmailID</b></td>
+                <td><b>Address</b></td>
+                <td><b>Phone</b></td>
+                <td style="padding-left: 3%;"><b>Action</b></td>
+            </tr>
+            <tr ng-repeat="Employee in Employees">
+                <td>
+                    {{Employee.Id}}
+                </td>
+                <td>
+                    {{Employee.Firstname}}
+                </td>
+                <td>
+                    {{Employee.Lastname}}
+                </td>
+                <td>
+                    {{Employee.EmailID}}
+                </td>
+                <td>
+                    {{Employee.Address}}
+                </td>
+                <td>
+                    {{Employee.Phone}}
+                </td>
+                <td>
+                    <span ng-click="editEmployee(Employee)" class="btn btn-primary">Edit</span>
+                    <span ng-click="deleteEmployee(Employee)" class="btn btn-danger">Delete</span>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+</div>
